@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lista Telefonica | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+<div class="page-header">
+    <h1>Telefones</h1>
+</div>
+<div class="row">
+    {% for telefone in telefones %}
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a href="{{ telefone.get_absolute_url }}">
+                <img src="http://placehold.it/350x250" alt="" />
+            </a>
+            <div class="caption">
+                <h3>{{ telefone }}</h3>
+                {{ telefone.name|linebreaks }}
+                <p><a href="{{ telefone.get_absolute_url }}" class="btn btn-success" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

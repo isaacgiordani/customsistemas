@@ -27,6 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #libs
+    'widget_tweaks',
+    #apps
     'core',
     'listatelefonica'
 ]
@@ -54,6 +57,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # apps
+                'listatelefonica.context_processors.entidades'
             ],
         },
     },
@@ -109,3 +114,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#auth
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'index'
