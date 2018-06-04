@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Entidades | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+<div class="page-header">
+    <h1>Entidades</h1>
+</div>
+
+<div class=bs-example data-example-id=thumbnails-with-custom-content>
+  <div class=row>
+{% for entidade in entity %}
+    <div class="col-sm-6 col-md-6">
+    <div class=thumbnail>
+      <!--<img alt="Generic placeholder thumbnail" data-src=holder.js/100%x200>-->
+      <div class=caption>
+        <h3>{{ entidade.slug }}</h3>
+        <h4>{{ entidade.name }}</h4>
+        <p>Criado em: {{ entidade.created }}</p>
+        <p>Modificado em: {{ entidade.modified }}</p>
+        <p><a href=# class="btn btn-primary" role=button>Ver</a>
+        <a href=# class="btn btn-default" role=button>Editar</a></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

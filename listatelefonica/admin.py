@@ -8,7 +8,7 @@ class EntityAdmin(admin.ModelAdmin):
     search_fields = ['name','slug']
 
 class PhoneBookAdmin(admin.ModelAdmin):
-    list_display = ['entity','name','lastname','slug','modified']
+    list_display = ['name','lastname','slug','entity','modified']
     search_fields = ['name','slug']
 
 admin.site.register(Entity, EntityAdmin)

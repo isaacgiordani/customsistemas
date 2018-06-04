@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Entity(models.Model):
@@ -14,6 +15,9 @@ class Entity(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('listatelefonica:entity',kwargs={'slug':self.slug})
 
 class PhoneBook(models.Model):
     entity = models.ForeignKey('listatelefonica.Entity', on_delete=models.CASCADE, verbose_name = 'Entidade')
@@ -33,3 +37,6 @@ class PhoneBook(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('listatelefonica:phonebook',kwargs={'slug':self.slug})

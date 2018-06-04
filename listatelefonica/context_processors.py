@@ -1,8 +1,8 @@
-#coding=utf-8
+# -*- coding: utf-8 -*-
 
-from .models import Entity
+from .models import Entity, PhoneBook
 
-def entidades(request):
+def entities(request):
     return {
-    'entidades': Entity.objects.all()
+    'entities': Entity.objects.all()
     }

@@ -58,7 +58,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 # apps
-                'listatelefonica.context_processors.entidades'
+                'listatelefonica.context_processors.entities',
             ],
         },
     },
