@@ -23,8 +23,8 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="" id="download">Entidades <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="" id="entidades">Entidades <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="entidades">
 								{% for entity in entities %}
 								<li><a href="{{ entity.get_absolute_url }}">{{ entity.slug }}</a></li>
 								{% endfor %}
@@ -53,8 +53,8 @@
 			  <div class="col-lg-12">
 			    <ul class="list-unstyled">
 			      <li><a href="{% url 'index' %}">Início</a></li>
-						<li><a href="#">Entidades</a></li>
-			      <li><a href="#">Telefones</a></li>
+						<li><a href="{% url 'listatelefonica:entity_list' %}">Entidades</a></li>
+			      <li><a href="{% url 'listatelefonica:phone_list' %}">Telefones</a></li>
 			      <li><a href="{% url 'contact' %}">Contato</a></li>
 						<li class="pull-right"><a href="#top">Voltar ao Topo</a></li>
 			    </ul>

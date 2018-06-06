@@ -6,19 +6,26 @@
 
 {% block container %}
 <div class="page-header">
-    <h1>{{ current_entity.slug }}</h1>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'listatelefonica:entity_list' %}">Entidades</a></li>
+    <li class="breadcrumb-item active">{{ current_entity.slug }}</li>
+  </ol>
 </div>
+
+<div class="page-header">
+    <h4>{{ current_entity.name }}</h4>
+</div>
+
 <div class="row">
-    {% for telefone in phone_list %}
+    {% for t in phone_list %}
     <div class="col-sm-6 col-md-4">
     <div class=thumbnail>
       <!--<img alt="Generic placeholder thumbnail" data-src=holder.js/100%x200>-->
       <div class=caption>
-        <h3>{{ telefone.slug }}</h3>
-        <h4>Tel.: {{ telefone.phone }}</h4>
-        <p>Nome: {{ telefone.name }}</p>
-        <p>Criado em: {{ telefone.created }}</p>
-        <p>Modificado em: {{ telefone.modified }}</p>
+        <h3>{{ t.slug }}</h3>
+        <h4>Tel.: {{ t.phone }}</h4>
+        <p>Nome: {{ t.name }} {{t.lastname}}</p>
         <p><a href=# class="btn btn-primary" role=button>Ver</a>
         <a href=# class="btn btn-default" role=button>Editar</a></p>
       </div>

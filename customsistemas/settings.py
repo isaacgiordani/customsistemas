@@ -59,6 +59,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 # apps
                 'listatelefonica.context_processors.entities',
+                'listatelefonica.context_processors.phones',
             ],
         },
     },

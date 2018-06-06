@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Entidades | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+<div class="page-header">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+    <li class="breadcrumb-item active">Entidades</li>
+  </ol>
+</div>
+
+
+{% for e in entity_list %}
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+<div class="card-header">{{ e.slug }}</div>
+  <div class="card-body">
+    <h4 class="card-title">{{ e.name }}</h4>
+    <!--<img alt="Generic placeholder thumbnail" data-src=holder.js/100%x200>
+    <p class="card-text">Criado em: {{ entidade.created }}</p>-->
+    <p class="card-text">Criado em: {{ e.modified }}</p>
+    <!--<p><a href="{{ entidade.get_absolute_url }}" class="btn btn-primary" role=button>Ver</a>
+    <a href=# class="btn btn-default" role=button>Editar</a></p>-->
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
