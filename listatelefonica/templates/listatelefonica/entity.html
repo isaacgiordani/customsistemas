@@ -14,7 +14,11 @@
 </div>
 
 <div class="page-header">
-    <h4>{{ current_entity.name }}</h4>
+    <h4>{{ current_entity.name }}
+{% if current_entity.phoneent != '' %}
+      | {{ current_entity.phoneent }}
+{% endif %}
+    </h4>
 </div>
 
 <div class="row">
@@ -24,7 +28,9 @@
       <div class=caption>
         <h4>{{ t.slug }}</h4>
         <h4>Tel.: {{ t.phone }}</h4>
+        <h4>Tel2.: {{ t.phonesec }}</h4>
         <p>Nome: {{ t.name }} {{t.lastname}}</p>
+        <p>Ramal: {{ t.ramal }} </p>
         <p><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
         <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
       </div>
