@@ -16,26 +16,31 @@
 <div class="page-header">
     <h4>{{ current_entity.name }}
 {% if current_entity.phoneent != '' %}
-      | {{ current_entity.phoneent }}
+      - {{ current_entity.phoneent }}
 {% endif %}
     </h4>
 </div>
-
-<div class="row">
+<div class=bs-example data-example-id=thumbnails-with-custom-content>
+  <div class="row">
     {% for t in phone_list %}
     <div class="col-sm-6 col-md-4">
     <div class=thumbnail>
       <div class=caption>
-        <h4>{{ t.slug }}</h4>
+        <h4>{{ t.name }} {{t.lastname}}</h4>
         <h4>Tel.: {{ t.phone }}</h4>
+        {% if t.phonesec != '' %}
         <h4>Tel2.: {{ t.phonesec }}</h4>
-        <p>Nome: {{ t.name }} {{t.lastname}}</p>
+        {% endif %}
+        <p>Identificador: {{ t.slug }}</p>
+        {% if t.ramal != '' %}
         <p>Ramal: {{ t.ramal }} </p>
+        {% endif %}
         <p><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
         <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
       </div>
     </div>
     </div>
     {% endfor %}
+  </div>
 </div>
 {% endblock %}

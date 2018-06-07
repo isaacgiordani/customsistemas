@@ -26,7 +26,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="" id="entidades">Entidades <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="entidades">
 								{% for entity in entities %}
-								<li><a href="{{ entity.get_absolute_url }}">{{ entity.slug }}</a></li>
+								<li><a href="{{ entity.get_absolute_url }}">{{ entity }}</a></li>
 								{% endfor %}
               </ul>
             </li>

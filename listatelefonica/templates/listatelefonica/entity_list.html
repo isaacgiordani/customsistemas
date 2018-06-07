@@ -17,11 +17,13 @@
     {% for e in entity_list %}
     <div class="col-lg-4">
     <div class="card border-success mb-3" style="max-width: 30rem;min-height:18rem">
-      <div class="card-header">{{ e.slug }}</div>
+      <div class="card-header">{{ e.slug }} <a href="{{ e.get_absolute_url }}" class="btn btn-primary btn-xs pull-right" role=button>Ver</a></div>
       <div class="card-body">
-        <h4 class="card-title">{{ e.name }}</h4>        
-        <p class="card-text"><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
-        <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
+        <h4 class="card-title">{{ e.name }}</h4>
+        <p class="card-text">
+
+          <!--<a href=# class="btn btn-default btn-sm" role=button>Editar</a>-->
+        </p>
       </div>
     </div>
   </div>
