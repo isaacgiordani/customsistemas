@@ -12,7 +12,7 @@
     <li class="breadcrumb-item active">{{ current_entity.slug }}</li>
   </ol>
 </div>
-<div class="panel panel-info">
+<div class="panel panel-primary">
   <div class="panel-body">
     <div class="panel-heading">
     <h4>{{ current_entity.name }}
@@ -24,35 +24,34 @@
   </div>
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-body">
     Acessos
   </div>
 </div>
-<div class=bs-example data-example-id=thumbnails-with-custom-content>
-  <div class="row">
-    {% for a in access_list %}
-    <div class="col-sm-6 col-md-4">
-      <div class=thumbnail>
-        <div class=caption>
-          <p>{{a.accesstype}}: {{ a.identifier }}</p>
-          <p>Senha: {{ a.password }}</p>
-        </div>
+
+<div class="row">
+  {% for a in access_list %}
+  <div class="col-sm-6 col-md-4">
+    <div class=thumbnail>
+      <div class=caption>
+        <p>{{a.accesstype}}: {{ a.identifier }}</p>
+        <p>Senha: {{ a.password }}</p>
       </div>
     </div>
-    {% endfor %}
   </div>
+  {% endfor %}
 </div>
 
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-body">
     Telefones
   </div>
 </div>
-<div class=bs-example data-example-id=thumbnails-with-custom-content>
-  <div class="row">
-    {% for t in phone_list %}
-    <div class="col-sm-6 col-md-4">
+
+<div class="row">
+  {% for t in phone_list %}
+  <div class="col-sm-6 col-md-4">
     <div class=thumbnail>
       <div class=caption>
         <h4>{{ t.name }} {{t.lastname}}</h4>
@@ -68,8 +67,7 @@
         <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
       </div>
     </div>
-    </div>
-    {% endfor %}
   </div>
+  {% endfor %}
 </div>
 {% endblock %}
