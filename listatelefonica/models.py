@@ -42,3 +42,32 @@ class PhoneBook(models.Model):
 
     def get_absolute_url(self):
         return reverse('listatelefonica:phonebook',kwargs={'slug':self.slug})
+
+class AccessType(models.Model):
+    description = models.CharField('Descrição', max_length = 35)
+    created = models.DateTimeField('Criado em', auto_now = True)
+    modified = models.DateTimeField('Modificado em', auto_now = True)
+
+    class Meta:
+        verbose_name = 'Tipo de Acesso'
+        verbose_name_plural = 'Tipos de Acesso'
+
+    def __str__(self):
+        return self.description
+
+class Access(models.Model):
+    entity = models.ForeignKey('listatelefonica.Entity', on_delete=models.CASCADE, verbose_name = 'Entidade')
+    accesstype = models.ForeignKey('listatelefonica.AccessType', on_delete=models.CASCADE, verbose_name = 'Tipo de Acesso')
+    identifier = models.CharField('Identificador', max_length = 35)
+    description = models.CharField('Descrição', max_length = 50, blank = True)
+    password = models.CharField('Senha', max_length = 35, blank = True)
+    active  = models.BooleanField('Ativo', default = True)
+    created = models.DateTimeField('Criado em', auto_now = True)
+    modified = models.DateTimeField('Modificado em', auto_now = True)
+
+    class Meta:
+        verbose_name = 'Acesso'
+        verbose_name_plural = 'Acessos'
+
+    def __str__(self):
+        return self.identifier

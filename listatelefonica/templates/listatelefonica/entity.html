@@ -12,13 +12,40 @@
     <li class="breadcrumb-item active">{{ current_entity.slug }}</li>
   </ol>
 </div>
-
-<div class="page-header">
+<div class="panel panel-primary">
+  <div class="panel-body">
     <h4>{{ current_entity.name }}
-{% if current_entity.phoneent != '' %}
+      {% if current_entity.phoneent != '' %}
       - {{ current_entity.phoneent }}
-{% endif %}
+      {% endif %}
     </h4>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Acessos
+  </div>
+</div>
+<div class=bs-example data-example-id=thumbnails-with-custom-content>
+  <div class="row">
+    {% for a in access_list %}
+    <div class="col-sm-6 col-md-4">
+      <div class=thumbnail>
+        <div class=caption>
+          <h4>{{a.accesstype}}: {{ a.identifier }}</h4>
+          <h4>Senha: {{ a.password }}</h4>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    Telefones
+  </div>
 </div>
 <div class=bs-example data-example-id=thumbnails-with-custom-content>
   <div class="row">

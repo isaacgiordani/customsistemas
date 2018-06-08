@@ -2,13 +2,14 @@
 
 from django.shortcuts import render
 
-from .models import PhoneBook, Entity
+from .models import PhoneBook, Entity, Access
 
 def entity(request, slug):
     entity = Entity.objects.get(slug=slug)
     context = {
         'current_entity': entity,
         'phone_list': PhoneBook.objects.filter(entity=entity),
+        'access_list': Access.objects.filter(entity=entity),
     }
     return render(request, 'listatelefonica/entity.html', context)
 
