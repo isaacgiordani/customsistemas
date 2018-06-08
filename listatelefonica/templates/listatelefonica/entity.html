@@ -12,13 +12,15 @@
     <li class="breadcrumb-item active">{{ current_entity.slug }}</li>
   </ol>
 </div>
-<div class="panel panel-primary">
+<div class="panel panel-info">
   <div class="panel-body">
+    <div class="panel-heading">
     <h4>{{ current_entity.name }}
       {% if current_entity.phoneent != '' %}
       - {{ current_entity.phoneent }}
       {% endif %}
     </h4>
+    </div>
   </div>
 </div>
 
@@ -33,8 +35,8 @@
     <div class="col-sm-6 col-md-4">
       <div class=thumbnail>
         <div class=caption>
-          <h4>{{a.accesstype}}: {{ a.identifier }}</h4>
-          <h4>Senha: {{ a.password }}</h4>
+          <p>{{a.accesstype}}: {{ a.identifier }}</p>
+          <p>Senha: {{ a.password }}</p>
         </div>
       </div>
     </div>
@@ -54,9 +56,9 @@
     <div class=thumbnail>
       <div class=caption>
         <h4>{{ t.name }} {{t.lastname}}</h4>
-        <h4>Tel.: {{ t.phone }}</h4>
+        <h4>{{ t.phone }}</h4>
         {% if t.phonesec != '' %}
-        <h4>Tel2.: {{ t.phonesec }}</h4>
+        <h4>{{ t.phonesec }}</h4>
         {% endif %}
         <p>Identificador: {{ t.slug }}</p>
         {% if t.ramal != '' %}
