@@ -20,11 +20,13 @@
 
 <div class="row">
   {% for e in entity_list %}
-  <div class="col-lg-4">
-    <div class=thumbnail>
+  <div class="col-lg-4" >
+    <div class=thumbnail style="min-height: 15rem;">
       <div class=caption>
-        <h4><a href="{{ e.get_absolute_url }}">{{ e.slug }}</a></h4>
-        <h4>{{ e.name }}</h4>
+        <h4 class="text-center">
+          <a href="{{ e.get_absolute_url }}">{{ e.slug }}</a>
+        </h4>
+        <h4 class="text-center">{{ e.name }}</h4>
       </div>
     </div>
   </div>

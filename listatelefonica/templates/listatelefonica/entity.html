@@ -33,10 +33,10 @@
 <div class="row">
   {% for a in access_list %}
   <div class="col-sm-6 col-md-4">
-    <div class=thumbnail>
+    <div class=thumbnail style="min-height: 10rem;">
       <div class=caption>
-        <p>{{a.accesstype}}: {{ a.identifier }}</p>
-        <p>Senha: {{ a.password }}</p>
+        <p class="text-center">{{a.accesstype}}: {{ a.identifier }}</p>
+        <p class="text-center">Senha: {{ a.password }}</p>
       </div>
     </div>
   </div>
@@ -52,18 +52,22 @@
 <div class="row">
   {% for t in phone_list %}
   <div class="col-sm-6 col-md-4">
-    <div class=thumbnail>
+    <div class=thumbnail style="min-height: 22rem;">
       <div class=caption>
-        <h4>{{ t.name }} {{t.lastname}}</h4>
-        <h4>{{ t.phone }}</h4>
+        <h4 class="text-center">{{ t.name }} {{t.lastname}}</h4>
+        <h4 class="text-center">{{ t.phone }}</h4>
         {% if t.phonesec != '' %}
-        <h4>{{ t.phonesec }}</h4>
+        <h4 class="text-center">{{ t.phonesec }}</h4>
         {% endif %}
-        <p>Identificador: {{ t.slug }}</p>
+        <p class="text-center">Identificador: {{ t.slug }}</p>
+
         {% if t.ramal != '' %}
-        <p>Ramal: {{ t.ramal }} </p>
+        <p class="text-center">Ramal: {{ t.ramal }}</p>
+        {% else %}
+        <p class="text-center">*</p>
         {% endif %}
-        <p><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
+
+        <p class="text-center"><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
         <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
       </div>
     </div>
