@@ -60,6 +60,8 @@
           <h5 class="text-center">{{ t.phone }}</h5>
           {% if t.phonesec != '' %}
           <h5 class="text-center">{{ t.phonesec }}</h5>
+          {% else %}
+          <h5>*</h5>
           {% endif %}
           <h5 class="text-center">Identificador: {{ t.slug }}</h5>
 
