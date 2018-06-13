@@ -23,14 +23,16 @@
     <div class="col-lg-4">
       <div class=thumbnail>
         <div class=caption>
-          <h4>{{ t.name }} {{t.lastname}}</h4>
-          <h4>Tel.: {{ t.phone }}</h4>
+          <h5>{{ t.name }} {{t.lastname}}</h5>
+          <h5>Tel.: {{ t.phone }}</h5>
           {% if t.phonesec != '' %}
-          <h4>Tel2.: {{ t.phonesec }}</h4>
+          <h5>Tel2.: {{ t.phonesec }}</h5>
           {% endif %}
-          <p>Identificador: {{ t.slug }}</p>
+          <!--<p>Identificador: {{ t.slug }}</p>-->
           {% if t.ramal != '' %}
-          <p>Ramal: {{ t.ramal }} </p>
+          <h5>Ramal: {{ t.ramal }} </h5>
+          {% else %}
+          <h5>*</h5>
           {% endif %}
           <p><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
           <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>

@@ -35,8 +35,9 @@
     <div class="col-sm-6 col-md-4">
       <div class=thumbnail style="min-height: 10rem;">
         <div class=caption>
-          <p class="text-center">{{a.accesstype}}: {{ a.identifier }}</p>
-          <p class="text-center">Senha: {{ a.password }}</p>
+          <h5 class="text-center">{{a.accesstype}}: <a href="#" class=button1>{{ a.identifier }}</a></h5>
+          <h5 class="text-center">Senha: <a href="#" class=button1>{{ a.password }}</a></h5>
+
         </div>
       </div>
     </div>
@@ -55,17 +56,17 @@
     <div class="col-sm-6 col-md-4">
       <div class=thumbnail style="min-height: 22rem;">
         <div class=caption>
-          <p class="text-center">{{ t.name }} {{t.lastname}}</p>
-          <p class="text-center">{{ t.phone }}</p>
+          <h5 class="text-center">{{ t.name }} {{t.lastname}}</h5>
+          <h5 class="text-center">{{ t.phone }}</h5>
           {% if t.phonesec != '' %}
-          <p class="text-center">{{ t.phonesec }}</p>
+          <h5 class="text-center">{{ t.phonesec }}</h5>
           {% endif %}
-          <p class="text-center">Identificador: {{ t.slug }}</p>
+          <h5 class="text-center">Identificador: {{ t.slug }}</h5>
 
           {% if t.ramal != '' %}
-          <p class="text-center">Ramal: {{ t.ramal }}</p>
+          <h5 class="text-center">Ramal: {{ t.ramal }}</h5>
           {% else %}
-          <p class="text-center">*</p>
+          <h5 class="text-center">*</h5>
           {% endif %}
 
           <p class="text-center"><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
