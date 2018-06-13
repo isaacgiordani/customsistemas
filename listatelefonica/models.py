@@ -23,8 +23,8 @@ class Entity(models.Model):
 class PhoneBook(models.Model):
     entity = models.ForeignKey('listatelefonica.Entity', on_delete=models.CASCADE, verbose_name = 'Entidade')
     name = models.CharField('Nome', max_length = 70)
-    lastname = models.CharField('SobreNome', max_length = 150)
-    role = models.CharField('Cargo', max_length = 20)
+    lastname = models.CharField('SobreNome', max_length = 150, blank = True)
+    role = models.CharField('Cargo', max_length = 20, blank = True)
     phone = models.CharField('Telefone', max_length = 20)
     phonesec = models.CharField('Telefone Secundario', max_length = 20, blank = True)
     ramal = models.CharField('Ramal', max_length = 10, blank = True)

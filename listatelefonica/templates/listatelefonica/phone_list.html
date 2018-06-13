@@ -11,31 +11,33 @@
     <li class="breadcrumb-item active">Telefones</li>
   </ol>
 </div>
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-body">
     Telefones
   </div>
 </div>
 
-<div class="row">
-  {% for t in phone_list %}
-  <div class="col-lg-4">
-    <div class=thumbnail>
-      <div class=caption>
-        <h4>{{ t.name }} {{t.lastname}}</h4>
-        <h4>Tel.: {{ t.phone }}</h4>
-        {% if t.phonesec != '' %}
-        <h4>Tel2.: {{ t.phonesec }}</h4>
-        {% endif %}
-        <p>Identificador: {{ t.slug }}</p>
-        {% if t.ramal != '' %}
-        <p>Ramal: {{ t.ramal }} </p>
-        {% endif %}
-        <p><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
-        <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
-      </div><!--caption-->
-    </div><!--thumbnail-->
-  </div><!--col-lg-4-->
-  {% endfor %}
-</div><!--row-->
-{% endblock %}
+<div class="jumbotron">
+  <div class="row">
+    {% for t in phone_list %}
+    <div class="col-lg-4">
+      <div class=thumbnail>
+        <div class=caption>
+          <h4>{{ t.name }} {{t.lastname}}</h4>
+          <h4>Tel.: {{ t.phone }}</h4>
+          {% if t.phonesec != '' %}
+          <h4>Tel2.: {{ t.phonesec }}</h4>
+          {% endif %}
+          <p>Identificador: {{ t.slug }}</p>
+          {% if t.ramal != '' %}
+          <p>Ramal: {{ t.ramal }} </p>
+          {% endif %}
+          <p><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
+          <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
+        </div><!--caption-->
+      </div><!--thumbnail-->
+    </div><!--col-lg-4-->
+    {% endfor %}
+  </div><!--row-->
+  {% endblock %}
+</div>

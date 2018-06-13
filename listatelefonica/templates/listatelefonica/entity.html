@@ -29,18 +29,19 @@
     Acessos
   </div>
 </div>
-
-<div class="row">
-  {% for a in access_list %}
-  <div class="col-sm-6 col-md-4">
-    <div class=thumbnail style="min-height: 10rem;">
-      <div class=caption>
-        <p class="text-center">{{a.accesstype}}: {{ a.identifier }}</p>
-        <p class="text-center">Senha: {{ a.password }}</p>
+<div class="jumbotron">
+  <div class="row">
+    {% for a in access_list %}
+    <div class="col-sm-6 col-md-4">
+      <div class=thumbnail style="min-height: 10rem;">
+        <div class=caption>
+          <p class="text-center">{{a.accesstype}}: {{ a.identifier }}</p>
+          <p class="text-center">Senha: {{ a.password }}</p>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
 
 <div class="panel panel-primary">
@@ -48,30 +49,31 @@
     Telefones
   </div>
 </div>
+<div class="jumbotron">
+  <div class="row">
+    {% for t in phone_list %}
+    <div class="col-sm-6 col-md-4">
+      <div class=thumbnail style="min-height: 22rem;">
+        <div class=caption>
+          <p class="text-center">{{ t.name }} {{t.lastname}}</p>
+          <p class="text-center">{{ t.phone }}</p>
+          {% if t.phonesec != '' %}
+          <p class="text-center">{{ t.phonesec }}</p>
+          {% endif %}
+          <p class="text-center">Identificador: {{ t.slug }}</p>
 
-<div class="row">
-  {% for t in phone_list %}
-  <div class="col-sm-6 col-md-4">
-    <div class=thumbnail style="min-height: 22rem;">
-      <div class=caption>
-        <h4 class="text-center">{{ t.name }} {{t.lastname}}</h4>
-        <h4 class="text-center">{{ t.phone }}</h4>
-        {% if t.phonesec != '' %}
-        <h4 class="text-center">{{ t.phonesec }}</h4>
-        {% endif %}
-        <p class="text-center">Identificador: {{ t.slug }}</p>
+          {% if t.ramal != '' %}
+          <p class="text-center">Ramal: {{ t.ramal }}</p>
+          {% else %}
+          <p class="text-center">*</p>
+          {% endif %}
 
-        {% if t.ramal != '' %}
-        <p class="text-center">Ramal: {{ t.ramal }}</p>
-        {% else %}
-        <p class="text-center">*</p>
-        {% endif %}
-
-        <p class="text-center"><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
-        <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
+          <p class="text-center"><a href=# class="btn btn-primary btn-sm" role=button>Ver</a>
+          <a href=# class="btn btn-default btn-sm" role=button>Editar</a></p>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
 </div>
 {% endblock %}
