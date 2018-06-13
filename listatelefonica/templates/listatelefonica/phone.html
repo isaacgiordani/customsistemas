@@ -1,50 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Django E-Commerce</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="stylesheet" href="assets/bootstrap.min.css" media="screen" />
-	<link rel="stylesheet" href="assets/custom.min.css" media="screen" />
-</head>
-<body>
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="" class="navbar-brand">Django E-Commerce</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="#">Início</a>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Categorias <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="">Notebooks</a></li>
-				<li><a href="">Acessórios</a></li>
-				<li><a href="">Celulares</a></li>
-              </ul>
-            </li>
-			<li>
-				<a href="contact.html">Contato</a>
-			</li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Minha Conta</a></li>
-          </ul>
-        </div>
-      </div>
+{% extends "base.html" %}
+
+{% block title %}
+    {{ current_phone.slug }} | {{ block.super }}
+{% endblock %}
+
+{% block container %}
+    <div class="page-header">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'listatelefonica:entity_list' %}">Entidades</a></li>
+        <li class="breadcrumb-item active">{{ current_phone.slug }}</li>
+      </ol>
     </div>
-    <div class="container">
-		<div class="page-header">
-		  <h1>Página do Produto</h1>
+    <div class="page-header">
+		  <h3>Contato</h3>
 		</div>
 		<div class="row">
 		  <div class="col-sm-4">
@@ -54,34 +23,25 @@
 		  </div>
 		  <div class="col-sm-8">
 			  <dl>
-			  	<dt>Lorem ipsum:</dt>
-				<dd>Lorem ipsum dolor sit amet</dd>
-				<dt>Lorem ipsum:</dt>
-				<dd>Lorem ipsum dolor sit amet</dd>
-				<dt>Lorem ipsum:</dt>
-				<dd>Lorem ipsum dolor sit amet</dd>
-				<dt>Lorem ipsum:</dt>
-				<dd>Lorem ipsum dolor sit amet</dd>
-				<dt>Lorem ipsum:</dt>
-				<dd>Lorem ipsum dolor sit amet</dd>
+			  	<dt>Nome:</dt>
+					<dd>{{ current_phone.name }}</dd>
+					<dt>Sobrenome:</dt>
+					<dd>{{ current_phone.lastname }}</dd>
+					<dt>Cargo:</dt>
+					<dd>{{ current_phone.role }}</dd>
+					<dt>Telefone:</dt>
+					<dd>{{ current_phone.phone}}</dd>
+					<dt>Telefone Secundario:</dt>
+					<dd>{{ current_phone.phonesec }}</dd>
+					<dt>Ramal:</dt>
+					<dd>{{ current_phone.ramal }}</dd>
+					<dt>Slug:</dt>
+					<dd>{{ current_phone.slug }}</dd>
+					<dt>Criado em:</dt>
+					<dd>{{ current_phone.created }}</dd>
+					<dt>Modificado em:</dt>
+					<dd>{{ current_phone.modified }}</dd>
 			  </dl>
 		  </div>
 		</div>
-		<footer>
-			<div class="row">
-			  <div class="col-lg-12">
-			    <ul class="list-unstyled">
-			      <li class="pull-right"><a href="#top">Voltar ao Topo</a></li>
-			      <li><a href="">Início</a></li>
-			      <li><a href="">Produtos</a></li>
-			      <li><a href="">Contato</a></li>
-			      <li><a href="">Termos e Privacidade</a></li>
-			    </ul>
-			  </div>
-			</div>
-		</footer>
-	</div>
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="assets/bootstrap.min.js"></script>
-</body>
-</html>
+		{% endblock %}

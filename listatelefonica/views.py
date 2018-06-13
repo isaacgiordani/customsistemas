@@ -22,12 +22,12 @@ def entity_list(request):
 def phone(request, slug):
     phone = PhoneBook.objects.get(slug=slug)
     context = {
-        'phone': phone
+        'current_phone': phone,
     }
     return render(request, 'listatelefonica/phone.html', context)
 
 def phone_list(request):
     context = {
-        'phone_list': PhoneBook.objects.all()
+        'phone_list': PhoneBook.objects.all(),
     }
     return render(request, 'listatelefonica/phone_list.html', context)
