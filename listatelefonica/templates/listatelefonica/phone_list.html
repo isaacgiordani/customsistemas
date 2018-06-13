@@ -27,6 +27,8 @@
           <h5>Tel.: {{ t.phone }}</h5>
           {% if t.phonesec != '' %}
           <h5>Tel2.: {{ t.phonesec }}</h5>
+          {% else %}
+          <h5>*</h5>
           {% endif %}
           <!--<p>Identificador: {{ t.slug }}</p>-->
           {% if t.ramal != '' %}
