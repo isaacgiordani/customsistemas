@@ -25,6 +25,7 @@ class PhoneBook(models.Model):
     name = models.CharField('Nome', max_length = 70)
     lastname = models.CharField('SobreNome', max_length = 150, blank = True)
     role = models.CharField('Cargo', max_length = 20, blank = True)
+    department = models.CharField('Setor', max_length = 20, blank = True)
     phone = models.CharField('Telefone', max_length = 20)
     phonesec = models.CharField('Telefone Secundario', max_length = 20, blank = True)
     ramal = models.CharField('Ramal', max_length = 10, blank = True)
@@ -71,3 +72,16 @@ class Access(models.Model):
 
     def __str__(self):
         return self.identifier
+
+class System(models.Model):
+    description = models.CharField('Descrição', max_length = 50)
+    active  = models.BooleanField('Ativo', default = True)
+    created = models.DateTimeField('Criado em', auto_now = True)
+    modified = models.DateTimeField('Modificado em', auto_now = True)
+
+    class Meta:
+        verbose_name = 'Sistema'
+        verbose_name_plural = 'Sistemas'
+
+    def __str__(self):
+        return self.description

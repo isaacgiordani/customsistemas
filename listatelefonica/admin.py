@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Entity, PhoneBook, AccessType, Access
+from .models import Entity, PhoneBook, AccessType, Access, System
 
 class EntityAdmin(admin.ModelAdmin):
     list_display = ['name','slug','created','modified']
@@ -23,7 +23,13 @@ class AccessAdmin(admin.ModelAdmin):
     search_fields = ['entity__name','accesstype__description','identifier']
     list_filter = ['created', 'modified']
 
+class SystemAdmin(admin.ModelAdmin):
+    list_display = ['description','active','modified']
+    search_fields = ['description']
+    list_filter = ['created', 'modified']
+
 admin.site.register(Entity, EntityAdmin)
 admin.site.register(PhoneBook, PhoneBookAdmin)
 admin.site.register(AccessType, AccessTypeAdmin)
 admin.site.register(Access, AccessAdmin)
+admin.site.register(System, SystemAdmin)
