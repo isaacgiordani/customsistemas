@@ -67,18 +67,19 @@
       <div class=thumbnail style="min-height: 22rem;">
         <div class=caption>
           <h5 class="text-center">{{ t.name }} {{t.lastname}}</h5>
+          <h5 class="text-center">{{ t.entity.slug }}</h5>
           <h5 class="text-center">{{ t.phone }}</h5>
           {% if t.phonesec != '' %}
           <h5 class="text-center">{{ t.phonesec }}</h5>
           {% else %}
-          <h5 class="text-center">*</h5>
+          <h5 class="text-center">-</h5>
           {% endif %}
           <h5 class="text-center">Identificador: {{ t.slug }}</h5>
 
           {% if t.ramal != '' %}
           <h5 class="text-center">Ramal: {{ t.ramal }}</h5>
           {% else %}
-          <h5 class="text-center">*</h5>
+          <h5 class="text-center">-</h5>
           {% endif %}
 
           <p class="text-center">
