@@ -24,6 +24,8 @@
           <a href="{% url 'listatelefonica:phone_list' %}" class="">Telefones</a>
           <span class="badge badge-primary badge-pill">{{ phones.count }}</span>
         </li>
+      </ul>
+      <ul class="list-group">
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <a href="https://servicos.betha.com.br/atendimento/cliente/login.faces" target="_blank" class="">Jira</a>
         </li>
@@ -31,7 +33,7 @@
           <a href="http://customsistemas.com.br" target="_blank" class="">Site Oficial</a>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center">
-          <a href="../../../admin" class="">Gerenciar</a>
+          <a href="{% url 'admin:index' %}" class="">Gerenciar</a>
         </li>
       </ul>
     </div>
