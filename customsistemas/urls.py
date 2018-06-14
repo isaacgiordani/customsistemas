@@ -11,6 +11,6 @@ urlpatterns = [
     url(r'^entrar/$', login, {'template_name': 'login.html'}, name='login'),
     url(r'^sair/$', logout, {'next_page': 'index'}, name='logout'),
     #url(r'^registro/$', views.register, name='register'),
-    url(r'^lista/', include(('listatelefonica.urls','listatelefonica'))),
+    url(r'^info/', include(('listatelefonica.urls','listatelefonica'))),
     url(r'^admin/', admin.site.urls),
 ]

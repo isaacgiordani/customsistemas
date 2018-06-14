@@ -8,12 +8,13 @@
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-    <li class="breadcrumb-item active">Telefones</li>
+    <li class="breadcrumb-item"><a href="{% url 'listatelefonica:entity_list' %}">Entidades</a></li>
+    <li class="breadcrumb-item active">Contatos</li>
   </ol>
 </div>
 <div class="panel panel-primary">
   <div class="panel-body">
-    Telefones
+    Contatos
   </div>
 </div>
 
@@ -37,7 +38,7 @@
           {% else %}
           <h5 class="text-center">-</h5>
           {% endif %}
-          <p class="text-center"><a href="../telefones/{{t.slug}}" class="btn btn-primary btn-sm" role=button>Ver</a>
+          <p class="text-center"><a href="../contatos/{{t.slug}}" class="btn btn-primary btn-sm" role=button>Ver</a>
           <!--<a href=# class="btn btn-default btn-sm" role=button>Editar</a>--></p>
         </div><!--caption-->
       </div><!--thumbnail-->

@@ -9,6 +9,7 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
         <li class="breadcrumb-item"><a href="{% url 'listatelefonica:entity_list' %}">Entidades</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'listatelefonica:phone_list' %}">Contatos</a></li>
         <li class="breadcrumb-item active">{{ current_phone.slug }}</li>
       </ol>
     </div>
@@ -37,7 +38,7 @@
 					<dd>{{ current_phone.phonesec }}</dd>
 					<dt>Ramal:</dt>
 					<dd>{{ current_phone.ramal }}</dd>
-					<dt>Slug:</dt>
+					<dt>Identificador:</dt>
 					<dd>{{ current_phone.slug }}</dd>
 					<dt>Criado em:</dt>
 					<dd>{{ current_phone.created }}</dd>

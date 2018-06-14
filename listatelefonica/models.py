@@ -21,7 +21,7 @@ class Entity(models.Model):
         return reverse('listatelefonica:entity',kwargs={'slug':self.slug})
 
 class PhoneBook(models.Model):
-    entity = models.ForeignKey('listatelefonica.Entity', on_delete=models.CASCADE, verbose_name = 'Entidade')
+    entity = models.ForeignKey('listatelefonica.Entity', on_delete = models.CASCADE, verbose_name = 'Entidade')
     name = models.CharField('Nome', max_length = 70)
     lastname = models.CharField('SobreNome', max_length = 150, blank = True)
     role = models.CharField('Cargo', max_length = 20, blank = True)
@@ -33,8 +33,8 @@ class PhoneBook(models.Model):
     modified = models.DateTimeField('Modificado em', auto_now = True)
 
     class Meta:
-        verbose_name = 'Telefone'
-        verbose_name_plural = 'Telefones'
+        verbose_name = 'Contato'
+        verbose_name_plural = 'Contatos'
         ordering = ['name']
 
     def __str__(self):
@@ -56,8 +56,8 @@ class AccessType(models.Model):
         return self.description
 
 class Access(models.Model):
-    entity = models.ForeignKey('listatelefonica.Entity', on_delete=models.CASCADE, verbose_name = 'Entidade')
-    accesstype = models.ForeignKey('listatelefonica.AccessType', on_delete=models.CASCADE, verbose_name = 'Tipo de Acesso')
+    entity = models.ForeignKey('listatelefonica.Entity', on_delete = models.CASCADE, verbose_name = 'Entidade')
+    accesstype = models.ForeignKey('listatelefonica.AccessType', on_delete = models.CASCADE, verbose_name = 'Tipo de Acesso')
     identifier = models.CharField('Identificador', max_length = 35)
     description = models.CharField('Descrição', max_length = 50, blank = True)
     password = models.CharField('Senha', max_length = 35, blank = True)
