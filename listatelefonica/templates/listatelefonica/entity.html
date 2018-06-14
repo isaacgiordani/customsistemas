@@ -45,14 +45,11 @@
     </div>
     {% endfor %}
     {% else %}
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail" style="min-height: 10rem;">
-        <div class=caption>
-          <h5 class="text-center">Favor realizar o login para ter acesso às informações.
-          <a href="{% url 'login' %}">Logar</a>
-          </h5>
-        </div>
-      </div>
+    <div class="">
+      <h3 class="text-center">Realize o login para ter acesso às informações de acesso.</h3>
+      <p class="text-center">
+        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Logar</a>
+      </p>
     </div>
     {% endif %}
   </div>
@@ -86,7 +83,7 @@
 
           <p class="text-center">
             <a href="../telefones/{{t.slug}}" class="btn btn-primary btn-sm" role=button>Ver</a>
-            <a href="" class="btn btn-default btn-sm" role=button>Editar</a>
+            <!--<a href="" class="btn btn-default btn-sm" role=button>Editar</a>-->
           </p>
         </div>
       </div>
