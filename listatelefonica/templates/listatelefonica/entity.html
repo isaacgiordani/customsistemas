@@ -29,8 +29,10 @@
     Acessos
   </div>
 </div>
+
 <div class="jumbotron">
   <div class="row">
+    {% if user.is_authenticated %}
     {% for a in access_list %}
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail" style="min-height: 10rem;">
@@ -42,6 +44,17 @@
       </div>
     </div>
     {% endfor %}
+    {% else %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail" style="min-height: 10rem;">
+        <div class=caption>
+          <h5 class="text-center">Favor realizar o login para ter acesso às informações.
+          <a href="{% url 'login' %}">Logar</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    {% endif %}
   </div>
 </div>
 

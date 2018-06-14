@@ -51,13 +51,13 @@
 							<a href="{% url 'contact' %}">Contato</a>
 						</li>-->
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-					{% if user.is_authenticated %}
-					<li><a href="#">Sair</a></li>
-					{% else %}
-					<li><a href="#">Entrar</a></li>
-					{% endif %}
-          </ul>
+					<ul class="nav navbar-nav navbar-right">
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'logout' %}">Sair</a></li>
+						{% else %}
+						<li><a href="{% url 'login' %}">Entrar</a></li>
+						{% endif %}
+					</ul>
         </div>
       </div>
     </div>
