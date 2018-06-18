@@ -12,6 +12,9 @@
     <li class="breadcrumb-item active">Contatos</li>
   </ol>
 </div>
+
+{% if user.is_authenticated %}
+
 <div class="panel panel-primary">
   <div class="panel-body">
     Contatos
@@ -50,5 +53,13 @@
     </div><!--col-lg-4-->
     {% endfor %}
   </div><!--row-->
+  {% else %}
+  <div class="jumbotron">
+    <h3 class="text-center">Realize o login para ter acesso às informações.</h3>
+    <p class="text-center">
+      <a class="btn btn-primary" href="{% url 'login' %}" role="button">Logar</a>
+    </p>
+  </div>
+  {% endif %}
   {% endblock %}
 </div>

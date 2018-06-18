@@ -47,9 +47,11 @@
 						<li>
 							<a href="{% url 'listatelefonica:entity_list' %}">Entidades</a>
 						</li>
-						<li>
-							<a href="{% url 'admin:index' %}">Gerenciar</a>
-						</li>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'admin:index' %}">Gerenciar</a></li>
+						{% else %}
+						{% endif %}
+
 						<!--<li>
 							<a href="{% url 'contact' %}">Contato</a>
 						</li>-->

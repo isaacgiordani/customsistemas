@@ -3,8 +3,8 @@
 {% block title %}
     {{ current_entity.slug }} | {{ block.super }}
 {% endblock %}
-
 {% block container %}
+
 <div class="page-header">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
@@ -12,6 +12,9 @@
     <li class="breadcrumb-item active">{{ current_entity.slug }}</li>
   </ol>
 </div>
+
+{% if user.is_authenticated %}
+
 <div class="panel panel-primary">
   <div class="panel-body">
     <div class="panel-heading">
@@ -32,31 +35,24 @@
 
 <div class="jumbotron">
   <div class="row">
-    {% if user.is_authenticated %}
+
     {% for a in access_list %}
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail" style="min-height: 10rem;">
         <div class=caption>
-          <h5 class="text-center">{{a.accesstype}}: <a href="#" class=button1>{{ a.identifier }}</a></h5>
+          <h4 class="text-center">{{a.accesstype}}</h4>
+          <h5 class="text-center">Indentificador: <a href="#" class=button1>{{ a.identifier }}</a></h5>
+          <h5 class="text-center">Senha: <a href="#" class=button1>{{ a.password }}</a></h5>
           {% if a.description != '' %}
           <h5 class="text-center">{{a.description}}</h5>
           {% else %}
           <h5 class="text-center">-</h5>
           {% endif %}
-          <h5 class="text-center">Senha: <a href="#" class=button1>{{ a.password }}</a></h5>
-
         </div>
       </div>
     </div>
     {% endfor %}
-    {% else %}
-    <div class="">
-      <h3 class="text-center">Realize o login para ter acesso às informações de acesso.</h3>
-      <p class="text-center">
-        <a class="btn btn-primary" href="{% url 'login' %}" role="button">Logar</a>
-      </p>
-    </div>
-    {% endif %}
+
   </div>
 </div>
 
@@ -100,4 +96,12 @@
     {% endfor %}
   </div>
 </div>
+{% else %}
+<div class="jumbotron">
+  <h3 class="text-center">Realize o login para ter acesso às informações.</h3>
+  <p class="text-center">
+    <a class="btn btn-primary" href="{% url 'login' %}" role="button">Logar</a>
+  </p>
+</div>
+{% endif %}
 {% endblock %}
