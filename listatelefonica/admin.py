@@ -19,7 +19,7 @@ class AccessTypeAdmin(admin.ModelAdmin):
     list_filter = ['created', 'modified']
 
 class AccessAdmin(admin.ModelAdmin):
-    list_display = ['entity','accesstype','identifier','password','description','modified']
+    list_display = ['entity','accesstype','identifier','password','description']
     search_fields = ['entity__name','accesstype__description','identifier']
     list_filter = ['created', 'modified']
 
