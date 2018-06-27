@@ -52,6 +52,7 @@ class AccessType(models.Model):
     class Meta:
         verbose_name = 'Tipo de Acesso'
         verbose_name_plural = 'Tipos de Acesso'
+        ordering = ['description']
 
     def __str__(self):
         return self.description
@@ -69,6 +70,7 @@ class Access(models.Model):
     class Meta:
         verbose_name = 'Acesso'
         verbose_name_plural = 'Acessos'
+        ordering = ['entity__name','active','accesstype__description','description']
 
     def __str__(self):
         return self.identifier
@@ -82,6 +84,7 @@ class System(models.Model):
     class Meta:
         verbose_name = 'Sistema'
         verbose_name_plural = 'Sistemas'
+        ordering = ['description']
 
     def __str__(self):
         return self.description
