@@ -27,81 +27,102 @@
   </div>
 </div>
 
-<div class="panel panel-primary">
-  <div class="panel-body">
-    Acessos
-  </div>
-</div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Acessos
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
 
-<div class="jumbotron">
-  <div class="row">
+        <div class="">
+          <div class="row">
 
-    {% for a in access_list %}
-    <div class="col-sm-6 col-md-4">
-      <div class="thumbnail" style="min-height: 10rem;">
-        <div class=caption>
-          <h4 class="text-center">{{a.accesstype}}</h4>
-          <h5 class="text-center">Indentificador: <a href="#" class=button1>{{ a.identifier }}</a></h5>
-          <h5 class="text-center">Senha: <a href="#" class=button1>{{ a.password }}</a></h5>
-          {% if a.description != '' %}
-          <h5 class="text-center">{{a.description}}</h5>
-          {% else %}
-          <h5 class="text-center">-</h5>
-          {% endif %}
+            {% for a in access_list %}
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail" style="min-height: 10rem;">
+                <div class=caption>
+                  <h4 class="text-center">{{a.accesstype}}</h4>
+                  <h5 class="text-center">Indentificador: <a href="#" class=button1>{{ a.identifier }}</a></h5>
+                  <h5 class="text-center">Senha: <a href="#" class=button1>{{ a.password }}</a></h5>
+                  {% if a.description != '' %}
+                  <h5 class="text-center">{{a.description}}</h5>
+                  {% else %}
+                  <h5 class="text-center">-</h5>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
         </div>
+
       </div>
     </div>
-    {% endfor %}
-
   </div>
-</div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Contatos
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
 
-<div class="panel panel-primary">
-  <div class="panel-body">
-    Contatos
-  </div>
-</div>
-<div class="jumbotron">
-  <div class="row">
-    {% for t in phone_list %}
-    <div class="col-sm-6 col-md-4">
-      <div class=thumbnail style="min-height: 22rem;">
-        <div class=caption>
-          <h5 class="text-center">{{ t.name }} {{t.lastname}}</h5>
-          <h5 class="text-center">{{ t.entity.slug }}</h5>
-          {% if t.department != '' %}
-          <h5 class="text-center">{{ t.department }}</h5>
-          {% else %}
-          <h5 class="text-center">-</h5>
-          {% endif %}
-          <h5 class="text-center">{{ t.phone }}</h5>
-          {% if t.phonesec != '' %}
-          <h5 class="text-center">{{ t.phonesec }}</h5>
-          {% else %}
-          <h5 class="text-center">-</h5>
-          {% endif %}
-          {% if t.ramal != '' %}
-          <h5 class="text-center">Ramal: {{ t.ramal }}</h5>
-          {% else %}
-          <h5 class="text-center">-</h5>
-          {% endif %}
+        <div class="">
+          <div class="row">
+            {% for t in phone_list %}
+            <div class="col-sm-6 col-md-4">
+              <div class=thumbnail style="min-height: 22rem;">
+                <div class=caption>
+                  <h5 class="text-center">{{ t.name }} {{t.lastname}}</h5>
+                  <h5 class="text-center">{{ t.entity.slug }}</h5>
+                  {% if t.department != '' %}
+                  <h5 class="text-center">{{ t.department }}</h5>
+                  {% else %}
+                  <h5 class="text-center">-</h5>
+                  {% endif %}
+                  <h5 class="text-center">{{ t.phone }}</h5>
+                  {% if t.phonesec != '' %}
+                  <h5 class="text-center">{{ t.phonesec }}</h5>
+                  {% else %}
+                  <h5 class="text-center">-</h5>
+                  {% endif %}
+                  {% if t.ramal != '' %}
+                  <h5 class="text-center">Ramal: {{ t.ramal }}</h5>
+                  {% else %}
+                  <h5 class="text-center">-</h5>
+                  {% endif %}
 
+                  <p class="text-center">
+                    <a href="../contatos/{{t.slug}}" class="btn btn-primary btn-sm" role=button>Ver</a>
+                    <!--<a href="" class="btn btn-default btn-sm" role=button>Editar</a>-->
+                  </p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% else %}
+        <div class="jumbotron">
+          <h3 class="text-center">Realize o login para ter acesso às informações.</h3>
           <p class="text-center">
-            <a href="../contatos/{{t.slug}}" class="btn btn-primary btn-sm" role=button>Ver</a>
-            <!--<a href="" class="btn btn-default btn-sm" role=button>Editar</a>-->
+            <a class="btn btn-primary" href="{% url 'login' %}" role="button">Logar</a>
           </p>
         </div>
+        {% endif %}
+
       </div>
     </div>
-    {% endfor %}
   </div>
 </div>
-{% else %}
-<div class="jumbotron">
-  <h3 class="text-center">Realize o login para ter acesso às informações.</h3>
-  <p class="text-center">
-    <a class="btn btn-primary" href="{% url 'login' %}" role="button">Logar</a>
-  </p>
-</div>
-{% endif %}
+
 {% endblock %}
